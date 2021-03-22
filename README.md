@@ -1,7 +1,7 @@
 # CSwithMrTeasdale
 Computer Science teaching materials
 
-This folder contains various teaching materials for students to support them in their journey on the CIE IGCSE Computer Science course (0478) as well as the IB Computer Science course (SL and HL)
+This folder contains various teaching materials I use when teaching my pupils to help support them in their journey on the CIE IGCSE Computer Science course (0478) as well as the IB Computer Science course (SL and HL)
 
 I will regularly be adding files to this across the year so watch out for more content!
 
