@@ -1,7 +1,8 @@
 import random
 running = True
 choices = ['rock', 'paper', 'scissors']
-print("Hello")
+print('''Rock, Paper, Scissors Game
+==========================''')
 
 def gameRound(userchoice, aichoice):
     if userchoice == aichoice:
@@ -15,7 +16,7 @@ def gameRound(userchoice, aichoice):
 
 def runGame():
     userchoice = str(input("Enter your move: "))
-    randindex = random.randint(0,2)
+    randindex = random.randint(0, 2)
     randompick = choices[randindex]
     result = gameRound(userchoice, randompick)
     return userchoice, result
