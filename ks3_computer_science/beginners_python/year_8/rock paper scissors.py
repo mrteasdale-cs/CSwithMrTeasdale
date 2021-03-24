@@ -33,7 +33,7 @@ while running:
     if result[1][0] == 1:
         print(f"you win! {user} beats {ai}!".format(user=user,ai=ai))
     elif result[1][0] == -1:
-        print(f"you lose! you are poop - {ai} beats {user}!".format(user=user,ai=ai))
+        print(f"LOSER! - {ai} beats {user}!".format(user=user,ai=ai))
     elif result[1][0] == 0:
         print(f"draw! {user} is the same {ai}!".format(user=user,ai=ai))
     exit()
