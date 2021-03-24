@@ -1,6 +1,7 @@
 import random
 running = True
 choices = ['rock', 'paper', 'scissors']
+print("Hello")
 
 def gameRound(userchoice, aichoice):
     if userchoice == aichoice:
