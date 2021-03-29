@@ -8,7 +8,6 @@ public class PersonDriver {
 		// Driver method
 		userInput test = new userInput();		
 		Scanner dataIn = new Scanner(System.in);
-		
 		//Create instances of objects here
 		Student newStudent1 = new Student("Joe","Bloggs",18,13,"Computer Science");
 		Teacher newTeacher1 = new Teacher("Myran","Teasdale",24,"Engineering and Technology Dept.","13A");
@@ -25,7 +24,7 @@ public class PersonDriver {
 		System.out.println("Updated Student Record\n"+newStudent1.toString()+"\n\n");
 		
 		//adds new person from user input (student or teacher) - not necessary
-		while(addPerson==true) {
+		/*while(addPerson==true) {
 			
 			System.out.println("Would you like to add a new person? \nEnter 1 to continue or 0 to exit");
 			try(Scanner sc = new Scanner(System.in)){
@@ -74,7 +73,7 @@ public class PersonDriver {
 
 						
 
-		}
+		}*/
 
 	}
 

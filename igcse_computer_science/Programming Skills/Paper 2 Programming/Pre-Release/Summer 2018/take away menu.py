@@ -18,15 +18,15 @@ def create_menu():
     print(menuitem)
     print(prices)
 
-    for j in range(1,len(menuitem)):
+    for j in range(1, len(menuitem)):
         print("Code:", itemcodes[j], "\tMenu item:", menuitem[j], "\t\t\tPrice:", prices[j])
 
 
 def order():
     stop = False
     order = []
-    quantity  = []
-    daily_orders = [[],[]]
+    quantity = []
+    daily_orders = [[], []]
 
     while stop == False:
         new_order = str(input("Enter the item code you want to order: "))
@@ -44,18 +44,16 @@ create_menu()
 new_order = order()
 
 print(new_order)
-
 print(new_order[2][0])
-
 print(len(new_order))
 
 print("Unique Order No. ", new_order[0])
 for i in range(len(new_order[1])):
     print("Menu item: ", new_order[1][i], "Quantity: ", new_order[2][i])
-    total_cost = total_cost+(new_order[2][i]*prices[i])
+    total_cost = total_cost+(new_order[2][i])
 
+#DOES NOT WORK YET
 print("Total cost ", total_cost)
-
 
 '''TASK 1 – Setting up the menu.
 Set up a series of arrays to store the menu items and the prices, using the data supplied in the menu.
