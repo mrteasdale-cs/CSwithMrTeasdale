@@ -4,7 +4,7 @@ import com.snake.templates.AbstractBoard;
 import com.snake.ui.BoardUI;
 
 /**
- * This is a class representing the game board for our Snake game TEST
+ * This is a class representing the game board for our Snake game TEST one two
  */
 public class Board extends AbstractBoard {
 	
