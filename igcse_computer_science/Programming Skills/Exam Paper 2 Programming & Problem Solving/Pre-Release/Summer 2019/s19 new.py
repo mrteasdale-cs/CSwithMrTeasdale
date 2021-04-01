@@ -30,7 +30,6 @@ def setup_storage():
 
 
 
-
     return bus_a
 
 '''Task 2 – Working out the statistics.
