@@ -16,8 +16,8 @@ def main():
     running = True
     while running:
         clock.tick(FPS)
-        for even in pygame.event.get():
-            if even.type == pygame.QUIT:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
                 running = False
 
         drawWindow()

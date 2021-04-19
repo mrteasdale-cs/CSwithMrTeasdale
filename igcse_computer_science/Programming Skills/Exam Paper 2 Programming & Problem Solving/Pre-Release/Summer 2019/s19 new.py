@@ -28,8 +28,6 @@ def setup_storage():
         minutes = int(input(f"Enter the minutes for bus {buses[1]} on day {days[aday]}{aday +1}".format(buses[1], days)))
         bus_a.append(minutes)
 
-
-
     return bus_a
 
 '''Task 2 – Working out the statistics.
@@ -49,11 +47,6 @@ def getStats(bus_a):
             countA += 1
             totalA = bus_a[i] + totalA
     print(countA, totalA)
-
-
-
-
-
 
 '''def printing(busList, dayList):
     results = getStats()
@@ -77,4 +70,3 @@ Extend the program as follows:
 • Allow the user to input a specific day, for example Fri3, to be used for analysis of data.
 • Find and display how many buses were late on this particular day.
 • For each late bus, display the route label and how late the bus was on this particular dayyyyyy'''
-
