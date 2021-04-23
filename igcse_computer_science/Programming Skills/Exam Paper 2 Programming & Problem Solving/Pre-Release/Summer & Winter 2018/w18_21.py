@@ -1,11 +1,16 @@
 import random
 menuitem = []
-prices = []
 itemcodes = []
+prices = []
 total_cost = 0
+
+rows, cols = (10, 3)
+menuitem = [[0] * cols] * rows
+print(menuitem)
 
 def create_menu():
     file = open("menu.txt",'r').read().splitlines()
+    i = 0
     for items in file:
         menuitem.append(items)
     file = open("prices.txt",'r').read().splitlines()
@@ -38,7 +43,7 @@ def order():
             stop = True
     uniquecode = random.randint(10000,99999)
     #daily_orders.append(uniquecode)
-    return uniquecode, order, quantity
+    return uniquecode, order, quantity, price
 
 create_menu()
 new_order = order()
@@ -46,11 +51,13 @@ new_order = order()
 print(new_order)
 print(new_order[2][0])
 print(len(new_order))
+print(prices)
 
 print("Unique Order No. ", new_order[0])
 for i in range(len(new_order[1])):
     print("Menu item: ", new_order[1][i], "Quantity: ", new_order[2][i])
     total_cost = total_cost+(new_order[2][i])
+    total_cost = new_order[2][i]*prices[i]
 
 #DOES NOT WORK YET
 print("Total cost ", total_cost)
