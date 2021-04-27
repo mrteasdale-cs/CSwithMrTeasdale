@@ -31,6 +31,23 @@ print ("Average monthly rainfall", roundedAverage)
 print("\nNumber of months above average rainfall: ", monthsAboveAverage)  
 
 
+#find how many numbers are whole numbers
+
+x = input("Enter a number, integer or floating point, -1 to end: ")
+count = 0
+while x !="-1":
+    y = float(x)
+    z = int(y)
+    if y == z:
+        print ("This is an integer")
+        count = count + 1
+    else:
+        print("This is a number with a decimal point")
+    x = input("Enter a number: ")
+print("Number of integers input: ", count)
+
+
+
 ####################
 #Homework Python Code
 
