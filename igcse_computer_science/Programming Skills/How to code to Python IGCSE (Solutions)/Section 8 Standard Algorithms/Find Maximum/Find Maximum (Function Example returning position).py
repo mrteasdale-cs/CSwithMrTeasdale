@@ -12,4 +12,4 @@ def findMaxPosition(maxlist):
 
 names = ["Agattha","Elsebe","Ranneigh","Kolka","Magga"]
 ages = [22,33,51,49,18]
-print("Oldest person is:",names[f])indMaxPosition(ages)
+print("Oldest person is:",names[findMaxPosition(ages)])
