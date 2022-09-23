@@ -12,7 +12,7 @@ characteristics = [["Usually used for very specialised tasks.", "y"], ["Can do m
 def run():
     play = "y"
     score = 0
-    print("Embedded SYstem Guesser.\nCan you guess if its an embedded system or not\n")
+    print("Embedded System Guesser.\nCan you guess if its an embedded system or not?\n")
 
     while play != "n":
 

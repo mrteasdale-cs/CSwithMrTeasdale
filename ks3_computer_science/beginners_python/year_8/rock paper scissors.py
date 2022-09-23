@@ -6,23 +6,26 @@ print('''Rock, Paper, Scissors Game
 ==========================''')
 
 
-def run_game():
-    userchoice = str(input("Enter your move: "))
+def run_Game():
+    userchoice = str(input("Enter your move: s, r, p"))
+    while userchoice != "rock" or userchoice != "scissors" or userchoice != "paper":
+        userchoice = str(input("Enter your move: s, r, p"))
+
     randindex = random.randint(0, 2)
     randompick = choices[randindex]
-    result = gameRound(userchoice, randompick)
+    result = game_Round(userchoice, randompick)
     return userchoice, result
 
 
-def game_round(userchoice, aichoice):
-    if userchoice == aichoice:
-        return 0, aichoice
-    elif (userchoice == "rock" and aichoice == "scissors") \
-            or (userchoice == "scissors" and aichoice == "paper") \
-            or userchoice == "paper" and aichoice == "rock":
-        return 1, aichoice
-    else:
-        return -1, aichoice
+def game_Round(userchoice, aichoice):
+        if userchoice == aichoice:
+            return 0, aichoice
+        elif (userchoice == "rock" and aichoice == "scissors") \
+                or (userchoice == "scissors" and aichoice == "paper") \
+                or userchoice == "paper" and aichoice == "rock":
+            return 1, aichoice
+        else:
+            return -1, aichoice
 
 
 def exit():
@@ -32,7 +35,7 @@ def exit():
 
 
 while running:
-    result = runGame()
+    result = run_Game()
     user = result[0]
     ai = result[1][1]
     if result[1][0] == 1:
@@ -40,5 +43,5 @@ while running:
     elif result[1][0] == -1:
         print(f"LOSER! - {ai} beats {user}!".format(user=user, ai=ai))
     elif result[1][0] == 0:
-        print(f"draw! {user} is the same {ai}!".format(user=user, ai=ai))
+        print(f"draw! {user} draws with {ai}!".format(user=user, ai=ai))
     exit()
