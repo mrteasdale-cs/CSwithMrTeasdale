@@ -1,4 +1,4 @@
-import math
+import cmath
 
 def main():
     print('''Welcome to the Scientific Equation Calculator
@@ -42,7 +42,7 @@ def energy(mass):
     return e
 
 def pythagoras(a,b):
-    c = math.sqrt(a**2 + b**2)
+    c = cmath.sqrt(a**2 + b**2)
     return c
 
 def thermodynamics():
@@ -52,7 +52,7 @@ def gravitation():
     pass
 
 def quadratic(a,b,c):
-    x = (-b + math.sqrt((b**2 - 4*a*c)))/2
+    x = (-b + cmath.sqrt((b**2 - 4*a*c)))/2
     return x
 
 

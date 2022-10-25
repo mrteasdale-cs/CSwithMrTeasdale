@@ -8,3 +8,5 @@ linkOpen = min(5, len(linkElements))
 
 for i in range(linkOpen):
     webbrowser.open_new('https://google.com'+linkElements[i].get('href'),new=1)
+
+

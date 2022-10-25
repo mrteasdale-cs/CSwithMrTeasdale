@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Label, Entry, Button, Tk
 
 def calculateGrade():
     raw = int(raw_Mark_text.get())
