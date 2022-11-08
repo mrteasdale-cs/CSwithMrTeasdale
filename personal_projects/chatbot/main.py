@@ -11,12 +11,12 @@ import json
 import pickle
 
 
-with open('intents.json') as file:
+with open('D:\OneDrive\Work\My Website\CS with Mr Teasdale (GitHub)\personal_projects\chatbot\intents.json') as file:
     data = json.load(file)
 
 
 try:
-    with open("data.pickle", "rb") as f:
+    with open("D:\OneDrive\Work\My Website\CS with Mr Teasdale (GitHub)\personal_projects\chatbot\data.pickle", "rb") as f:
         words, labels, training, output = pickle.load(f)
 
 except:
@@ -65,7 +65,7 @@ except:
     training = np.array(training)
     output = np.array(output)
 
-    with open("data.pickle", "wb") as f:
+    with open("D:\OneDrive\Work\My Website\CS with Mr Teasdale (GitHub)\personal_projects\chatbot\data.pickle", "wb") as f:
         pickle.dump((words, labels, training, output), f)
 
 net = tflearn.input_data(shape=[None, len(training[0])])
@@ -76,11 +76,13 @@ net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
 
+try:
+    model.load('D:\OneDrive\Work\My Website\CS with Mr Teasdale (GitHub)\personal_projects\chatbot\model.tflearn')
+except:
+    model.fit(training, output, n_epoch=1500, batch_size=9, show_metric=True)
+    model.save('D:\OneDrive\Work\My Website\CS with Mr Teasdale (GitHub)\personal_projects\chatbot\model.tflearn')
 
-model.fit(training, output, n_epoch=1500, batch_size=9, show_metric=True)
-model.save('model.tflearn')
 
-#model.load('model.tflearn')
 
 
 
@@ -108,15 +110,20 @@ def chat():
         results = model.predict([bag_of_words(inp, words)])
         results_index = np.argmax(results)
         tag = labels[results_index]
-        print(results)
-        print(tag)
 
-        if results[results_index] > 0.7:
+        print(f'''
+===Testing=== 
+Probabilities: {results}
+Highest Index: {results_index}
+Tag = {tag}
+''')
+
+        if results[0][results_index] > 0.7:
             for tg in data["intents"]:
                 if tg['tag'] == tag:
                     resp = tg['responses']
 
-            print(random.choice(resp))
+            print("Not a bot: ", random.choice(resp))
         else:
             print("I am not sure I understand.")
 

@@ -24,9 +24,9 @@
          "responses": ["I sometimes like counting to 1000000!", "I like playing games", "Not much apart from playing games"],
          "context_set": ""
         },
-        {"tag": "hours",
-         "patterns": ["when are you guys open", "what are your hours", "hours of operation"],
-         "responses": ["We are open 7am-4pm Monday-Friday!"],
+        {"tag": "joke",
+         "patterns": ["tell me a joke", "are you funny?", "do you know a joke?"],
+         "responses": ["knock knock, who's there, orange. Orange Who? ..orange you glad I didn't say banana?"],
          "context_set": ""
         },
         {"tag": "robot",
