@@ -11,7 +11,7 @@ ACCELERATION = .5
 class Ball():
     def __init__(self):
         self.y = 200
-        self.velocity = 8
+        self.velocity = 5
 
     def draw(self):
         pygame.draw.circle(display, (0, 255, 0), (400, int(self.y)), 20)
