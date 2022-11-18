@@ -2,6 +2,7 @@ import pygame as pg
 import sys
 import os
 import time
+import random
 pg.font.init()
 
 WIDTH, HEIGHT = 800, 800
@@ -12,11 +13,11 @@ BG = pg.image.load(os.path.join('pygame/space-game/Assets','space.png'))
 # Load Spaceship
 YELLOW_SPACESHIP_IMG = pg.image.load(os.path.join('pygame/space-game/Assets','spaceship_yellow.png'))
 YELLOW_SPACESHIP = pg.transform.rotate(pg.transform.scale(YELLOW_SPACESHIP_IMG, (SHIP_HEIGHT, SHIP_WIDTH)),180)
-RED_SPACESHIP_IMG = pg.image.load(os.path.join('pygame/space-game/Assets','spaceship_red.png'))
+RED_SPACESHIP_IMG = pg.image.load(os.path.join('pygame/space-game/Assets','pixel_ship_red_small.png'))
 RED_SPACESHIP = pg.transform.rotate(pg.transform.scale(RED_SPACESHIP_IMG, (SHIP_HEIGHT, SHIP_WIDTH)),180)
-BLUE_SPACESHIP_IMG = pg.image.load(os.path.join('pygame/space-game/Assets','spaceship_blue.png'))
+BLUE_SPACESHIP_IMG = pg.image.load(os.path.join('pygame/space-game/Assets','pixel_ship_blue_small.png'))
 BLUE_SPACESHIP = pg.transform.rotate(pg.transform.scale(BLUE_SPACESHIP_IMG, (SHIP_HEIGHT, SHIP_WIDTH)),180)
-GREEN_SPACESHIP_IMG = pg.image.load(os.path.join('pygame/space-game/Assets','spaceship_green.png'))
+GREEN_SPACESHIP_IMG = pg.image.load(os.path.join('pygame/space-game/Assets','pixel_ship_green_small.png'))
 GREEN_SPACESHIP = pg.transform.rotate(pg.transform.scale(GREEN_SPACESHIP_IMG, (SHIP_HEIGHT, SHIP_WIDTH)),180)
 # Load Lasers
 RED_LASER = pg.image.load(os.path.join('pygame/space-game/Assets','pixel_laser_red.png'))
@@ -60,7 +61,6 @@ class Enemy(Ship):
     def move(self, velocity):
         self.y += velocity
 
-    
 
 class Game:
     def __init__(self):
@@ -71,7 +71,9 @@ class Game:
         self.lives = 5
         self.main_font = pg.font.SysFont("comicsans", 28, True)
         self.player_velocity = 5
-
+        self.enemies = []
+        self.wave_length = 5
+        self.enemy_velocity = 1
 
     def check_events(self):
         for event in pg.event.get():
@@ -82,11 +84,20 @@ class Game:
         self.moveShip(self,key_pressed)
 
     player = Player(350,700)
+    enemy = Enemy(350, 150, "red")
+
+    
 
     def redraw_window(self):
         self.screen.blit(BG, (0,0))
         self.print_caption()
+
+
+        self.enemy.draw_ship(self.screen)
+        self.enemy.move(self.enemy_velocity)
+
         self.player.draw_ship(self.screen)
+        
         pg.display.update()
 
     def print_caption(self):
