@@ -12,6 +12,12 @@ BG = pg.image.load(os.path.join('pygame/space-game/Assets','space.png'))
 # Load Spaceship
 YELLOW_SPACESHIP_IMG = pg.image.load(os.path.join('pygame/space-game/Assets','spaceship_yellow.png'))
 YELLOW_SPACESHIP = pg.transform.rotate(pg.transform.scale(YELLOW_SPACESHIP_IMG, (SHIP_HEIGHT, SHIP_WIDTH)),180)
+RED_SPACESHIP_IMG = pg.image.load(os.path.join('pygame/space-game/Assets','spaceship_red.png'))
+RED_SPACESHIP = pg.transform.rotate(pg.transform.scale(RED_SPACESHIP_IMG, (SHIP_HEIGHT, SHIP_WIDTH)),180)
+BLUE_SPACESHIP_IMG = pg.image.load(os.path.join('pygame/space-game/Assets','spaceship_blue.png'))
+BLUE_SPACESHIP = pg.transform.rotate(pg.transform.scale(BLUE_SPACESHIP_IMG, (SHIP_HEIGHT, SHIP_WIDTH)),180)
+GREEN_SPACESHIP_IMG = pg.image.load(os.path.join('pygame/space-game/Assets','spaceship_green.png'))
+GREEN_SPACESHIP = pg.transform.rotate(pg.transform.scale(GREEN_SPACESHIP_IMG, (SHIP_HEIGHT, SHIP_WIDTH)),180)
 # Load Lasers
 RED_LASER = pg.image.load(os.path.join('pygame/space-game/Assets','pixel_laser_red.png'))
 BLUE_LASER = pg.image.load(os.path.join('pygame/space-game/Assets','pixel_laser_blue.png'))
@@ -28,7 +34,8 @@ class Ship:
         self.lasers = []
 
     def draw_ship(self, screen):
-        pg.draw.rect(screen, (255,250,0), (self.x,self.y,50,50))
+        #pg.draw.rect(screen, (255,250,0), (self.x,self.y,50,50))
+        screen.blit(self.ship_image, (self.x, self.y))
 
 class Player(Ship):
     def __init__(self, x, y, health=100):
@@ -37,6 +44,22 @@ class Player(Ship):
         self.laser_image = YELLOW_LASER
         self.mask = pg.mask.from_surface(self.ship_image)
         self.max_health = health
+
+class Enemy(Ship):
+    COLOUR_MAP = {
+        "red" : (RED_SPACESHIP, RED_LASER),
+        "blue" : (BLUE_SPACESHIP, BLUE_LASER),
+        "green" : (GREEN_SPACESHIP, GREEN_LASER),
+    }
+
+    def __init__(self, x, y, colour, health=100):
+        super().__init__(x, y, health)
+        self.ship_image, self.laser_image = self.COLOUR_MAP[colour]
+        self.mask = pg.mask.from_surface(self.ship_image)
+
+    def move(self, velocity):
+        self.y += velocity
+
     
 
 class Game:
@@ -83,6 +106,7 @@ class Game:
         if key_press[pg.K_DOWN] and self.player.y + self.player_velocity + 50 < HEIGHT:
             self.player.y += self.player_velocity
 
+
     def run(self):
         while True:
             self.redraw_window()
@@ -91,8 +115,7 @@ class Game:
             self.check_events()
             self.clock.tick(FPS)
 
-            
-
+        
 
 if __name__ == "__main__":
     game = Game()
